@@ -32,7 +32,6 @@ class ChatBot
 
         //// STUDENT CODE
         ////
-        int testInt;
         
         ChatBot(const ChatBot &source);             // copy constructor
         ChatBot &operator=(const ChatBot &source);   //copy assignment operator

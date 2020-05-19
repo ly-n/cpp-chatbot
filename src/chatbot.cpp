@@ -37,7 +37,6 @@ ChatBot::~ChatBot()
     // deallocate heap memory
     if(_image != NULL) // Attention: wxWidgets uses NULL and not nullptr
     {
-        //delete _image;
         _image = NULL;
     }
 }

@@ -16,7 +16,6 @@ class ChatBotPanelDialog : public wxScrolledWindow
         //// STUDENT CODE
         ////
 
-        //ChatLogic *_chatLogic; // now unique pointer
         std::unique_ptr<ChatLogic> _chatLogic;
 
         ////
@@ -28,10 +27,8 @@ class ChatBotPanelDialog : public wxScrolledWindow
         ~ChatBotPanelDialog();
 
         // getter / setter
-        //ChatLogic *GetChatLogicHandle() { return _chatLogic; }
         ChatLogic *GetChatLogicHandle() { return _chatLogic.get(); }
         
-    
         // events
         void paintEvent(wxPaintEvent &evt);
         void paintNow();

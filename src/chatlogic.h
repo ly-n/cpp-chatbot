@@ -15,10 +15,9 @@ class ChatLogic
     private:
         //// STUDENT CODE
         ////
-        /* edges start out owned by chatlogic but should be changed, will move to nodes */
+        /* edges start out owned by chatlogic but ownership will move to nodes */
 
         // data handles (owned)
-        //std::vector<GraphNode *> _nodes;
         std::vector<std::unique_ptr<GraphNode>> _nodes;
         std::vector<GraphEdge *> _edges;
         
