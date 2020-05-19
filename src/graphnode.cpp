@@ -6,8 +6,7 @@
 GraphNode::GraphNode(int id)
 {
     //std::cout << "New GraphNode constructor" << std::endl;
-    //_chatBot = std::make_shared<ChatBot>();
-    _chatBot = std::make_unique<ChatBot>();
+    // _chatBot = std::make_unique<ChatBot>();
     _id = id;
 }
 
@@ -42,18 +41,20 @@ void GraphNode::AddEdgeToParentNode(GraphEdge *edge)
 /* happens only a single time during load answergraph */
 void GraphNode::AddEdgeToChildNode(GraphEdge *edge)
 {
-    //_childEdges.push_back(edge);
     _childEdges.emplace_back(std::move(edge));
 }
 
 //// STUDENT CODE
 ////
 
-void GraphNode::MoveChatbotHere(ChatBot &&chatbot)
+
+void GraphNode::MoveChatbotHere(ChatBot *chatbot)
 {
     //std::cout << "MoveChatbotHere method" << std::endl;
-    *_chatBot = std::move(chatbot);
+    _chatBot = std::make_unique<ChatBot>(std::move(*chatbot));
+
     _chatBot->SetCurrentNode(this);
+
 }
 
 
@@ -61,8 +62,11 @@ void GraphNode::MoveChatbotHere(ChatBot &&chatbot)
 void GraphNode::MoveChatbotToNewNode(GraphNode *newNode)
 {
     //std::cout << "MoveChatbotToNewNode method" << std::endl;
-    newNode->MoveChatbotHere(std::move(*_chatBot));
+   newNode->MoveChatbotHere(std::move(_chatBot).get());
+   _chatBot = nullptr;
 }
+
+
 
 ////
 //// EOF STUDENT CODE
