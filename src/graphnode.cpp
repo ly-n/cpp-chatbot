@@ -1,3 +1,5 @@
+#include <memory>
+
 #include "graphedge.h"
 #include "graphnode.h"
 

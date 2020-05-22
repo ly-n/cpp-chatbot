@@ -6,6 +6,8 @@
 #include <tuple>
 #include <algorithm>
 
+#include <memory>
+
 #include "graphedge.h"
 #include "graphnode.h"
 #include "chatbot.h"

@@ -4,6 +4,8 @@
 #include <vector>
 #include <string>
 
+#include <memory>
+
 class GraphNode; // forward declaration
 
 class GraphEdge
